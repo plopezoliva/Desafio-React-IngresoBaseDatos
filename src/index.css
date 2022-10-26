@@ -54,9 +54,9 @@ margin-top: 20px;
 .btn{
   width: 150px;
   height: 30px;
-  background: aquamarine;
-  color: blueviolet;
+  background: black;
+  color: white;
   border-radius: 10px;
-  border: solid 2px slateblue;
+  border: solid 2px bisque;
   font-size: 20px;
 }
