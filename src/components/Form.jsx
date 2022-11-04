@@ -4,7 +4,7 @@ import Input from "./Input";
 import { BaseColaboradores as colaboradores } from "../BaseColaboradores";
 // importo la  base de dato
 
-const Form = () => {
+const Form = ({buscarItem}) => {
   const [nombre, setNombre] = useState("");
   const [correo, setCorreo] = useState("");
 
@@ -46,7 +46,8 @@ const Form = () => {
       setError(null);
     }
   };
-
+  const results = !buscarItem ? BaseColaboradores : BaseColaboradores.filter((item)=> item.nombre.toLowerCase().includes(buscarItem.toLowerCase())|| item.correo.toLowerCase().includes(buscarItem.toLowerCase()))
+  
   return (
     <div>
       <h1 className="titulo">Base de Datos Colaboradores</h1>
@@ -55,7 +56,7 @@ const Form = () => {
         <div className="col-lista">
           <h4 className="tituloLista">Listado de Colaboradores</h4>
           <ul className="list-group">
-            {BaseColaboradores.map((item) => (
+            {results.map((item) => (
               <li className="list-group-item" key={item.id}>
                 <span className="lead">
                 {item.nombre} / {item.correo}
